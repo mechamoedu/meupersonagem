@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG Character Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Gerenciamento do Personagem de RPG</h1>
+    </header>
+
+    <!-- Status Bars -->
+    <section class="status-bars">
+      <h2>Status do Personagem</h2>
+
+      <!-- HP Bar -->
+      <div class="bar-container hp-bar">
+        <label for="hp-bar-fill">HP:</label>
+        <div id="hp-bar-fill" class="bar-fill" data-value="100 / 100" style="width: 100%;"></div>
+      </div>
+      <div class="bar-controls">
+        <button id="hp-decrease">Diminuir HP</button>
+        <button id="hp-increase">Aumentar HP</button>
+      </div>
+
+      <!-- Mana Bar -->
+      <div class="bar-container mana-bar">
+        <label for="mana-bar-fill">Mana:</label>
+        <div id="mana-bar-fill" class="bar-fill" data-value="100 / 100" style="width: 100%;"></div>
+      </div>
+      <div class="bar-controls">
+        <button id="mana-decrease">Diminuir Mana</button>
+        <button id="mana-increase">Aumentar Mana</button>
+        <input type="number" id="mana-total" placeholder="Total de Mana" value="100" min="1" max="999">
+      </div>
+    </section>
+
+    <!-- Create Item Section -->
+    <section class="create-item-section">
+      <h2>Criar Novo Item</h2>
+      <div id="create-item-form">
+        <input type="text" id="item-title" placeholder="Título do Item">
+        <textarea id="item-description" placeholder="Descrição do Item"></textarea>
+        <input type="file" id="item-image" accept="image/*">
+        <label for="item-consumable">Consumível:</label>
+        <input type="checkbox" id="item-consumable">
+        <button id="create-item-button">Criar Item</button>
+      </div>
+    </section>
+
+    <!-- Inventory -->
+    <section class="inventory">
+      <h2>Inventário</h2>
+      <div id="inventory-container"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

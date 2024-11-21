@@ -1,0 +1,222 @@
+/* Layout geral */
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e2e;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #00ccff;
+  text-shadow: 0 2px 5px #00ffff;
+}
+
+h2 {
+  color: #ffffff;
+  margin-top: 20px;
+  border-bottom: 2px solid #00ccff;
+  padding-bottom: 10px;
+}
+
+/* Status Bars */
+.status-bars .bar-container {
+  margin: 15px 0;
+}
+
+.bar-container label {
+  font-size: 18px;
+}
+
+.bar-container .bar-fill {
+  width: 100%;
+  height: 20px;
+  background: #555;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bar-container .bar-fill::after {
+  content: attr(data-value); /* Mostra o valor da barra */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 14px;
+}
+
+.hp-bar #hp-bar-fill {
+  background: #4caf50;  /* Verde claro para HP */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.mana-bar #mana-bar-fill {
+  background: #2196f3;  /* Azul claro para Mana */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.bar-controls button {
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 16px;
+  background: #00ccff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bar-controls button:hover {
+  background: #0099cc;
+}
+
+/* Create Item Section */
+.create-item-section {
+  margin-top: 30px;
+}
+
+#create-item-form input, #create-item-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+#create-item-form input[type="file"] {
+  padding: 5px;
+}
+
+#create-item-form button {
+  background: #00ccff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#create-item-form button:hover {
+  background: #0099cc;
+}
+
+/* Inventory */
+.inventory {
+  margin-top: 30px;
+}
+
+.inventory-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #222, #333);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.inventory-item .item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.inventory-item .item-details {
+  flex: 1;
+}
+
+.inventory-item input[type="text"],
+.inventory-item textarea {
+  width: 100%;
+  background: #2c2c3e;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.inventory-item input[type="text"]:focus,
+.inventory-item textarea:focus {
+  border-color: #00ccff;
+  outline: none;
+}
+
+.inventory-item .bar-fill {
+  width: 100%;
+  height: 10px;
+  background: #4caf50; /* Verde claro para a barra de Mana do Item */
+  border-radius: 5px;
+  position: relative;
+  margin: 5px 0;
+}
+
+.inventory-item .bar-fill::after {
+  content: attr(data-value);
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: black;
+}
+
+.inventory-item .item-controls button {
+  background: #00ccff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.inventory-item .item-controls button:hover {
+  background: #0099cc;
+}
+
+/* Mana Bar do Item no Inventário */
+.inventory-item .mana-bar {
+  height: 8px;  /* Barra mais fina para mana no item */
+  background: #2196f3;  /* Azul claro para Mana */
+  border-radius: 5px;
+  position: relative;
+  margin-top: 10px;  /* Espaço adicional para a barra de mana */
+}
+
+.inventory-item .mana-bar::after {
+  content: attr(data-value);
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
+
