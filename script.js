@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const consumable = itemConsumableInput.checked;
 
     // Caso a imagem não tenha sido escolhida, usar uma imagem padrão
-    const imageUrl = image ? URL.createObjectURL(image) : 'placeholder.jpg'; // Defina seu caminho para uma imagem padrão aqui
+    const imageUrl = image ? URL.createObjectURL(image) : 'placeholder.jpg'; // Verifique o caminho da imagem padrão
 
     if (title && description) {  // Verifica se todos os campos necessários foram preenchidos
       const newItem = {
@@ -135,41 +135,16 @@ document.addEventListener("DOMContentLoaded", function () {
     itemElement.classList.add("inventory-item");
 
     itemElement.innerHTML = `
-      <img class="item-image" src="${item.image}" alt="Item Image">
+      <img class="item-image" src="${item.image}" alt="${item.title}">
       <div class="item-details">
-        <h3 class="item-title">${item.title}</h3>
+        <h3>${item.title}</h3>
         <p>${item.description}</p>
       </div>
-      <div class="item-controls">
-        ${item.consumable ? `<button class="consume-item">Consumir</button>` : ""}
-        <button class="delete-item">Excluir</button>
-      </div>
     `;
-
-    // Exclui o item do inventário
-    itemElement.querySelector(".delete-item").addEventListener("click", () => {
-      itemElement.remove();
-      items = items.filter(i => i !== item);
-      saveData(); // Salva após a exclusão
-    });
-
-    // Exclui automaticamente ao consumir
-    if (item.consumable) {
-      itemElement.querySelector(".consume-item").addEventListener("click", () => {
-        itemElement.remove();
-        items = items.filter(i => i !== item);
-        saveData(); // Salva após consumir
-      });
-    }
 
     inventoryContainer.appendChild(itemElement);
   }
 
-  // Carrega o inventário com os itens salvos
-  function loadInventory() {
-    items.forEach(item => addItemToInventory(item));
-  }
-
-  // Inicializa as barras e carrega os dados salvos
-  loadSavedData();
+  loadSavedData(); // Carrega os dados salvos ao carregar a página
 });
+
